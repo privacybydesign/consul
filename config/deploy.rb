@@ -59,7 +59,9 @@ end
 
 task :install_bundler_gem do
   on roles(:app) do
-    execute "gem install bundler"
+    within release_path do
+      execute "gem install bundler"
+    end
   end
 end
 
