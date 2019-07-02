@@ -60,7 +60,7 @@ end
 task :install_bundler_gem do
   on roles(:app) do
     within release_path do
-      execute "gem install bundler"
+      execute "rvm use $(< .ruby-version); gem install bundler"
     end
   end
 end
